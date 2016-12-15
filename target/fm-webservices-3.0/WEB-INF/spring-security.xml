@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<!-- Enable the @Secured annotation to secure service layer methods -->
+	<global-method-security secured-annotations="enabled" />
+
+	<http security="none" pattern="/favicon.ico" />
+<!-- 
+	<http auto-config='true'>
+		<intercept-url pattern="/j_spring_security_check"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/login/" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/**" access="ROLE_USER, ROLE_ADMIN" />
+		<form-login login-page="/login/"
+			authentication-failure-url="/login/?error=true" />
+	</http>
+ -->
+	<!-- <authentication-manager>
+		<authentication-provider user-service-ref="userDetailServiceImpl">
+			<password-encoder ref="encoder" />
+		</authentication-provider>
+	</authentication-manager>
+	<beans:bean id="encoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+	</beans:bean>
+	<beans:bean id="userDetailServiceImpl"
+		class="com.vaadin.vina.dev.security.impl.UserDetailServiceImpl" /> -->
+</beans:beans>
